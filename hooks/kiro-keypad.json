@@ -1,0 +1,43 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Keypad prompt",
+      "trigger": "PromptSubmit",
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad session",
+      "trigger": "SessionStart",
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad tool gate",
+      "description": "Blocks shell, write, and MCP tools until the keypad answers.",
+      "trigger": "PreToolUse",
+      "matcher": "shell|write|fs_write|execute|bash|@mcp|mcp",
+      "timeout": 0,
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad tool done",
+      "trigger": "PostToolUse",
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad stop",
+      "trigger": "Stop",
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad task start",
+      "trigger": "PreTaskExecution",
+      "action": { "type": "command", "command": "__RELAY__" }
+    },
+    {
+      "name": "Keypad task done",
+      "trigger": "PostTaskExecution",
+      "action": { "type": "command", "command": "__RELAY__" }
+    }
+  ]
+}

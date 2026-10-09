@@ -1,0 +1,78 @@
+{
+  "name": "kiro-keypad-companion",
+  "displayName": "Kiro Keypad Companion",
+  "description": "Focuses Kiro sessions, inserts prompts, and reads spec progress for the MX Keypad.",
+  "version": "0.1.0",
+  "publisher": "hackculture",
+  "license": "MIT",
+  "private": true,
+  "engines": { "vscode": "^1.80.0" },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true,
+      "description": "The keypad companion only talks to localhost and Kiro commands."
+    }
+  },
+  "categories": ["Other"],
+  "keywords": ["kiro", "logitech", "keypad"],
+  "main": "./out/extension.js",
+  "extensionKind": ["ui", "workspace"],
+  "activationEvents": ["*"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "kiroKeypad.restart",
+        "title": "Kiro Keypad: Restart Companion",
+        "category": "Kiro Keypad"
+      },
+      {
+        "command": "kiroKeypad.status",
+        "title": "Kiro Keypad: Show Companion Status",
+        "category": "Kiro Keypad"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "kiroAgent.chat.nextSessionTab",
+        "key": "ctrl+alt+shift+right",
+        "mac": "cmd+alt+shift+right"
+      },
+      {
+        "command": "kiroAgent.chat.previousSessionTab",
+        "key": "ctrl+alt+shift+left",
+        "mac": "cmd+alt+shift+left"
+      },
+      {
+        "command": "workbench.action.chat.cancel",
+        "key": "ctrl+alt+shift+c",
+        "mac": "cmd+alt+shift+c"
+      },
+      {
+        "command": "kiroAgent.chat.closeSessionTab",
+        "key": "ctrl+alt+shift+w",
+        "mac": "cmd+alt+shift+w"
+      }
+    ],
+    "configuration": {
+      "title": "Kiro Keypad Companion",
+      "properties": {
+        "kiroKeypad.port": {
+          "type": "number",
+          "default": 47832,
+          "description": "Loopback port for the keypad companion."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p .",
+    "watch": "tsc -p . --watch",
+    "package": "vsce package --no-dependencies --out dist/kiro-keypad-companion.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.24.0",
+    "typescript": "^5.3.3"
+  }
+}

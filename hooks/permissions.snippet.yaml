@@ -1,0 +1,13 @@
+# Optional. Use this only if the keypad should be the only approval prompt.
+# Kiro's own Allow / Deny dialog still appears unless these capabilities are allowed.
+# Deny rules you already have still win.
+rules:
+  - capability: shell
+    match: ["*"]
+    effect: allow
+  - capability: fs_write
+    match: ["**/*"]
+    effect: allow
+  - capability: mcp
+    match: ["*"]
+    effect: allow

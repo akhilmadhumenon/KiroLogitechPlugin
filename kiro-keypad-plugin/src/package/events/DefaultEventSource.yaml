@@ -1,0 +1,10 @@
+displayName: Kiro Keypad
+description: Haptic cues when a Kiro session needs you, and when a spec task finishes
+
+events:
+  - name: needsYou
+    displayName: Session needs you
+    description: Fired when the pinned session is waiting on Allow or Deny
+  - name: taskDone
+    displayName: Spec task finished
+    description: Fired when a spec task completes
