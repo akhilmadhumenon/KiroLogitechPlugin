@@ -2,6 +2,13 @@
 
 Kiro Keypad puts live Kiro chats on a Logitech MX Keypad. The keys use Kiro purple the way Excel uses green and Word uses blue: one field color, a white icon, and one caption.
 
+<p align="center">
+  <img src="docs/images/sessions.png" width="280" alt="Sessions page. Allow, Always, and Kill sit above six chat keys. One key shows the open chat.">
+  <img src="docs/images/spec.png" width="230" alt="Spec page. Next, Run, Pause, phase, task count, and the spec files.">
+  <img src="docs/images/flow.png" width="230" alt="Flow page. Spec, Plan, Bugfix, Review, Tests, Explain, Steer, New chat, and Focus.">
+  <img src="docs/images/studio.png" width="230" alt="Studio page. Context activity, Model, Auto, Hooks, Diff, Problems, Accept, and Undo.">
+</p>
+
 Two programs have to be running:
 
 | Piece | Folder | Job |
@@ -154,6 +161,8 @@ In Logi Options+, select the MX Keypad, add the **Kiro Keypad** plugin, and make
 
 The six session actions are named S1 through S6 in the assignment list. On the keypad, an empty key shows `S1`–`S6`. A chat shows its title.
 
+<img src="docs/images/sessions.png" width="420" alt="Sessions page on the MX Keypad. The first chat key is filled and the tooltip describes a short press and a long press.">
+
 **Page 2 — Kiro · Spec**
 
 ```
@@ -161,6 +170,8 @@ The six session actions are named S1 through S6 in the assignment list. On the k
 [ Phase] [ 3/11 ] [ Open  ]
 [ Reqs ] [ Design] [ Tasks]
 ```
+
+<img src="docs/images/spec.png" width="360" alt="Spec page on the MX Keypad.">
 
 **Page 3 — Kiro · Flow**
 
@@ -170,6 +181,8 @@ The six session actions are named S1 through S6 in the assignment list. On the k
 [ Steer ] [ New chat ] [ Focus ]
 ```
 
+<img src="docs/images/flow.png" width="360" alt="Flow page on the MX Keypad.">
+
 **Page 4 — Kiro · Studio**
 
 ```
@@ -177,6 +190,8 @@ The six session actions are named S1 through S6 in the assignment list. On the k
 [ Hooks   ] [ Diff  ] [ Problems ]
 [ Accept  ] [ Undo  ] [ Term ]
 ```
+
+<img src="docs/images/studio.png" width="360" alt="Studio page on the MX Keypad. Context shows tool activity as A 0.">
 
 ## How the session page works
 
@@ -364,6 +379,7 @@ A gated shell stays on the lifted purple field until Allow, Always, or Deny.
 | [hooks](hooks/) | Relay and the hook list installed into `~/.kiro/hooks` |
 | [scripts/install-hooks.sh](scripts/install-hooks.sh) | Installs those hooks |
 | [tools/KiroKeypad.Check](tools/KiroKeypad.Check/) | Tile and session-board checks |
+| [docs/images](docs/images/) | Screenshots of the four keypad pages |
 
 ## Limits
 
