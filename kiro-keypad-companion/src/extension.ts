@@ -413,14 +413,18 @@ function existing(file: string): string | undefined {
 }
 
 async function tryCommands(candidates: string[], args: unknown[]): Promise<{ ok: boolean; used?: string }> {
+  // Do not filter on the command list captured at startup. Kiro's chat commands
+  // (kiroAgent.viewSession and the session-tab commands) are registered a moment
+  // later, on a separate extension host, so they are missing from that snapshot.
   for (const command of candidates) {
-    if (!commands.includes(command)) {
-      continue;
-    }
     try {
       await vscode.commands.executeCommand(command, ...args);
       return { ok: true, used: command };
-    } catch {
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      if (/not found/i.test(message) || args.length === 0) {
+        continue;
+      }
       try {
         await vscode.commands.executeCommand(command);
         return { ok: true, used: command };

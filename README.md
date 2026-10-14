@@ -27,6 +27,20 @@ The ports sit beside the Cursor Agent Cockpit (`47821` / `47822`), so both can r
 
 This version is macOS-first. The C# plugin can build on Windows, but the keystroke backup and the install paths below are for macOS. The dialpad is not part of this version.
 
+## Run it from this repo
+
+Do these in order from a clone of [KiroLogitechPlugin](https://github.com/akhilmadhumenon/KiroLogitechPlugin). A press does nothing until step 4 has been reloaded into the Kiro window you are actually using.
+
+1. Install the [.NET 10 SDK](https://dotnet.microsoft.com/download), Node.js 18 or newer, [Kiro](https://kiro.dev/), and [Logi Options+](https://www.logitech.com/software/logi-options-plus.html). Plug in the MX Keypad. `dotnet --version` must start with `10`.
+2. Build and install the companion, then reload Kiro. See [Companion](#1-companion). The status bar must show `Keypad:47832`, and `~/.kiro-keypad/companion.json` must exist.
+3. Build the Logi plugin. See [Logi plugin](#2-logi-plugin). `curl -s http://127.0.0.1:47831/health` must return `"ok": true`.
+4. Install the hooks and reload Kiro again. See [Hooks](#3-hooks).
+5. In Logi Options+, assign the four pages under [Assign the keys](#4-assign-the-keys).
+6. Grant Accessibility to **Logi Plugin Service** (System Settings → Privacy & Security → Accessibility). This is the backup path when the companion cannot run a command.
+7. Press a filled chat key. The open Kiro tab should change, and the command palette should stay closed.
+
+If the keys are drawn but a press does not change the chat, the companion is up and refusing the command. Reload the Kiro window after installing the companion. The plugin log at `~/Library/Application Support/Logi/LogiPluginService/Logs/plugin_logs/KiroKeypad.log` should stop saying `/v1/focus failed`.
+
 ## What you need
 
 - macOS
